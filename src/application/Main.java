@@ -90,6 +90,24 @@ public class Main {
                 + " - $" + totalProducto[indiceMenor]);
     }
 
+    public void buscarMayorMenorTurno(double[] totalTurno, String[] turnos) {
+        int indiceMayor = 0;
+        int indiceMenor = 0;
+        for (int i = 1; i < totalTurno.length; i++) {
+            if (totalTurno[i] > totalTurno[indiceMayor]) {
+                indiceMayor = i;
+            }
+            if (totalTurno[i] < totalTurno[indiceMenor]) {
+                indiceMenor = i;
+            }
+        }
+
+        System.out.println("Turno con mayor recaudacion: " + turnos[indiceMayor]
+                + " - $" + totalTurno[indiceMayor]);
+        System.out.println("Turno con menor recaudacion: " + turnos[indiceMenor]
+                + " - $" + totalTurno[indiceMenor]);
+    }
+
     public static void main(String[] args){
         String[] productos = {"Hamburguesas", "Perros Calientes", "Papas Fritas"};
         String[] turnos = {"Almuerzo", "Tarde", "Noche", "Madrugada"};
