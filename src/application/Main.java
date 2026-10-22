@@ -53,6 +53,15 @@ public class Main {
         }
     }
 
+    public void calcularTotalTurno(double[][] ventas, double[] totalTurno) {
+        for (int j = 0; j < totalTurno.length; j++) {
+            totalTurno[j] = 0;
+            for (int i = 0; i < ventas.length; i++) {
+                totalTurno[j] += ventas[i][j];
+            }
+        }
+    }
+
     public static void main(String[] args){
         String[] productos = {"Hamburguesas", "Perros Calientes", "Papas Fritas"};
         String[] turnos = {"Almuerzo", "Tarde", "Noche", "Madrugada"};
