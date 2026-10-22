@@ -62,6 +62,16 @@ public class Main {
         }
     }
 
+    public double calcularTotalGeneral(double[][] ventas) {
+        double total = 0;
+        for (int i = 0; i < ventas.length; i++) {
+            for (int j = 0; j < ventas[i].length; j++) {
+                total += ventas[i][j];
+            }
+        }
+        return total;
+    }
+
     public static void main(String[] args){
         String[] productos = {"Hamburguesas", "Perros Calientes", "Papas Fritas"};
         String[] turnos = {"Almuerzo", "Tarde", "Noche", "Madrugada"};
