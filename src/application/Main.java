@@ -72,6 +72,24 @@ public class Main {
         return total;
     }
 
+    public void buscarMayorMenorProducto(double[] totalProducto, String[] productos) {
+        int indiceMayor = 0;
+        int indiceMenor = 0;
+        for (int i = 1; i < totalProducto.length; i++) {
+            if (totalProducto[i] > totalProducto[indiceMayor]) {
+                indiceMayor = i;
+            }
+            if (totalProducto[i] < totalProducto[indiceMenor]) {
+                indiceMenor = i;
+            }
+        }
+
+        System.out.println("Producto con mayor recaudacion: " + productos[indiceMayor]
+                + " - $" + totalProducto[indiceMayor]);
+        System.out.println("Producto con menor recaudacion: " + productos[indiceMenor]
+                + " - $" + totalProducto[indiceMenor]);
+    }
+
     public static void main(String[] args){
         String[] productos = {"Hamburguesas", "Perros Calientes", "Papas Fritas"};
         String[] turnos = {"Almuerzo", "Tarde", "Noche", "Madrugada"};
