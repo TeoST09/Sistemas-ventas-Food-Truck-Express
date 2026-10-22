@@ -108,6 +108,34 @@ public class Main {
                 + " - $" + totalTurno[indiceMenor]);
     }
 
+    public void mostrarResultados(double[] totalProducto, double[] totalTurno, String[] productos,
+                                  String[] turnos, double totalGeneral) {
+        System.out.println("\nResultados de ventas");
+
+        System.out.println("\nTotales por producto:");
+        for (int i = 0; i < productos.length; i++) {
+            System.out.println(productos[i] + ": $" + totalProducto[i]);
+        }
+
+        System.out.println("\nTotales por turno:");
+        for (int i = 0; i < turnos.length; i++) {
+            System.out.println(turnos[i] + ": $" + totalTurno[i]);
+        }
+
+        System.out.println("\nMayor y menor por producto:");
+        app.buscarMayorMenorProducto(totalProducto, productos);
+
+        System.out.println("\nMayor y menor por turno:");
+        app.buscarMayorMenorTurno(totalTurno, turnos);
+
+        System.out.println("\nTotal general recaudado: $" + totalGeneral);
+        if (totalGeneral > 500000) {
+            System.out.println("Meta de Ventas Alcanzada");
+        } else {
+            System.out.println("Meta No Alcanzada");
+        }
+    }
+
     public static void main(String[] args){
         String[] productos = {"Hamburguesas", "Perros Calientes", "Papas Fritas"};
         String[] turnos = {"Almuerzo", "Tarde", "Noche", "Madrugada"};
@@ -119,6 +147,10 @@ public class Main {
 
         app.inicializarVectores(totalProducto, totalTurno);
         app.registrarVentas(ventas, productos, turnos);
+        app.calcularTotalProducto(ventas, totalProducto);
+        app.calcularTotalTurno(ventas, totalTurno);
+        double totalGeneral = app.calcularTotalGeneral(ventas);
+        app.mostrarResultados(totalProducto, totalTurno, productos, turnos, totalGeneral);
         scanner.close();
     }
 }
